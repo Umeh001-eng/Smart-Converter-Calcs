@@ -1,83 +1,119 @@
-<div class="app">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Converter Calc</title>
+  
+  <!-- Optional: App description for SEO -->
+  <meta name="description" content="Smart Converter Calc - Scientific calculator with unit converter and night mode.">
 
-<div class="top">
-<h1>Smart Converter Calc</h1>
+  <!-- Optional: Browser theme color -->
+  <meta name="theme-color" content="#0f172a">
 
-<label class="switch">
-<input type="checkbox" onclick="toggleNight()">
-<span class="slider"></span>
-</label>
+  <!-- Optional: Favicon -->
+  <link rel="icon" type="image/png" href="icon.png">
 
-</div>
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="display">
-<input id="display">
-</div>
+  <div class="app">
 
-<div class="converter">
+    <!-- Top section with title and night mode switch -->
+    <div class="top">
+      <h1>Smart Converter Calc</h1>
 
-<div class="unit">
-<span class="icon">⚖️</span>
-<select id="fromUnit">
-<option value="g">Grams</option>
-<option value="kg">Kilograms</option>
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="ft">Feet</option>
-<option value="in">Inches</option>
-</select>
-</div>
+      <label class="switch">
+        <input type="checkbox" id="nightModeSwitch">
+        <span class="slider"></span>
+      </label>
+    </div>
 
-<div class="unit">
-<span class="icon">📏</span>
-<select id="toUnit">
-<option value="kg">Kilograms</option>
-<option value="g">Grams</option>
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="ft">Feet</option>
-<option value="in">Inches</option>
-</select>
-</div>
+    <!-- Display -->
+    <div class="display">
+      <input id="display">
+    </div>
 
-<button class="convert" onclick="convert()">Convert</button>
+    <!-- Converter section -->
+    <div class="converter">
+      <div class="unit">
+        <span class="icon">⚖️</span>
+        <select id="fromUnit">
+          <option value="g">Grams</option>
+          <option value="kg">Kilograms</option>
+          <option value="m">Meters</option>
+          <option value="km">Kilometers</option>
+          <option value="ft">Feet</option>
+          <option value="in">Inches</option>
+        </select>
+      </div>
 
-</div>
+      <div class="unit">
+        <span class="icon">📏</span>
+        <select id="toUnit">
+          <option value="kg">Kilograms</option>
+          <option value="g">Grams</option>
+          <option value="m">Meters</option>
+          <option value="km">Kilometers</option>
+          <option value="ft">Feet</option>
+          <option value="in">Inches</option>
+        </select>
+      </div>
 
-<div class="buttons">
+      <button class="convert">Convert</button>
+    </div>
 
-<button onclick="sci('sin')">sin</button>
-<button onclick="sci('cos')">cos</button>
-<button onclick="sci('tan')">tan</button>
-<button onclick="sci('log')">log</button>
-<button onclick="sci('ln')">ln</button>
+    <!-- Calculator buttons -->
+    <div class="buttons">
+      <button onclick="sci('sin')">sin</button>
+      <button onclick="sci('cos')">cos</button>
+      <button onclick="sci('tan')">tan</button>
+      <button onclick="sci('log')">log</button>
+      <button onclick="sci('ln')">ln</button>
 
-<button onclick="press('7')">7</button>
-<button onclick="press('8')">8</button>
-<button onclick="press('9')">9</button>
-<button onclick="press('/')">÷</button>
-<button onclick="clearDisplay()">AC</button>
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">÷</button>
+      <button onclick="clearDisplay()">AC</button>
 
-<button onclick="press('4')">4</button>
-<button onclick="press('5')">5</button>
-<button onclick="press('6')">6</button>
-<button onclick="press('*')">×</button>
-<button onclick="press(Math.PI)">π</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">×</button>
+      <button onclick="press(Math.PI)">π</button>
 
-<button onclick="press('1')">1</button>
-<button onclick="press('2')">2</button>
-<button onclick="press('3')">3</button>
-<button onclick="press('-')">−</button>
-<button onclick="press(Math.E)">e</button>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">−</button>
+      <button onclick="press(Math.E)">e</button>
 
-<button onclick="press('0')">0</button>
-<button onclick="press('.')">.</button>
-<button onclick="calculate()">=</button>
-<button onclick="press('+')">+</button>
-<button onclick="del()">DEL</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+      <button onclick="del()">DEL</button>
+    </div>
 
-</div>
+    <p class="mode">Scientific Modes: Deg / Rad</p>
 
-<p class="mode">Scientific Modes: Deg / Rad</p>
+  </div>
 
-</div>
+  <!-- Link to your JS -->
+  <script src="script.js"></script>
+  
+  <!-- Optional: Add this small JS for night mode safely -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const nightSwitch = document.getElementById("nightModeSwitch");
+      if(nightSwitch) {
+        nightSwitch.addEventListener("click", toggleNight);
+      }
+    });
+  </script>
+
+</body>
+</html>
