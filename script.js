@@ -66,4 +66,19 @@ display.value=result+" "+names[to]
 
 function toggleNight(){
 document.body.classList.toggle("dark")
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Main converter button
+  const convertBtn = document.querySelector(".convert");
+  if (convertBtn) convertBtn.addEventListener("click", convert);
+
+  // Night mode switch
+  const nightSwitch = document.querySelector(".switch input");
+  if (nightSwitch) nightSwitch.addEventListener("click", toggleNight);
+
+  // If you want a clear button class (replace AC button)
+  const clearBtn = document.querySelector(".clear");
+  if (clearBtn) clearBtn.addEventListener("click", clearDisplay);
+});
+
 }
